@@ -1,0 +1,27 @@
+<header class="bar bar-nav">
+  <button class="btn btn-link btn-nav pull-left">
+    <span class="icon icon-left-nav"></span>
+    Left
+  </button>
+  <button class="btn btn-link btn-nav pull-right">
+    Right
+    <span class="icon icon-right-nav"></span>
+  </button>
+  <h1 class="title">SocialReformer</h1>
+</header>
+
+<div class='content'>
+  <ul class="table-view">
+    <li class="table-view-divider">Lesson Catagories</li>
+
+    {{#each catagoriesList}}
+      <li class="table-view-cell">
+        <a class="navigate-right" href="#/catagory/{{id}}">
+          <span class="badge">{{this.courses}}</span>
+          {{this.name}}
+        </a>
+      </li>
+    {{/each}}
+
+  </ul>
+</div>
