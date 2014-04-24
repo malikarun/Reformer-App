@@ -4,7 +4,7 @@ app.utils.templates = (function() {
 
     $.each(views, function(index, view) {
       if (app.views[view]) {
-        deferreds.push($.get('js/tpl/' + view + '.html', function(data) {
+        deferreds.push($.get('js/app/tpl/' + view + '.html', function(data) {
           app.views[view].prototype.template = _.template(data);
         }, 'html'));
       }
