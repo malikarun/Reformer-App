@@ -9,13 +9,10 @@
   <name>SocialReformer</name>
 
   <description>
-      SocialReformer sample application that responds to the deviceready event.
+      SocialReformer is a sample application that uses backbone, ratchet, oauth2 authentication and rails as back end to login.
   </description>
 
-  <author href="http://phonegap.com" email="support@phonegap.com">
-      PhoneGap Team
-  </author>
-
+  <author href="http://phonegap.com" email="support@phonegap.com"> Arun Malik</author>
   <!--
     Enable individual API permissions here.
     The "device" permission is required for the 'deviceready' event.
@@ -34,6 +31,7 @@
   <preference name="orientation"                value="default" />        <!-- all: default means both landscape and portrait are enabled -->
   <preference name="target-device"              value="universal" />      <!-- all: possible values handset, tablet, or universal -->
   <preference name="fullscreen"                 value="true" />           <!-- all: hides the status bar at the top of the screen -->
+  <preference name="deployment-target"          value="7.0" />            <!--   This sets the IPHONEOS_DEPLOYMENT_TARGET in the build.-->
   <preference name="webviewbounce"              value="true" />           <!-- ios: control whether the screen 'bounces' when scrolled beyond the top -->
   <preference name="prerendered-icon"           value="true" />           <!-- ios: if icon is prerendered, iOS will not apply it's gloss to the app's icon on the user's home screen -->
   <preference name="stay-in-webview"            value="false" />          <!-- ios: external links should open in the default browser, 'true' would use the webview the app lives in -->
