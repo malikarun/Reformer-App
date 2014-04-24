@@ -24,4 +24,5 @@ $(document).on("ready", function () {
   });
 }).on("load", function(){
   FastClick.attach(document.body);
+  StatusBar.hide();
 });
