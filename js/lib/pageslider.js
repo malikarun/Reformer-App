@@ -37,7 +37,7 @@ function PageSlider(container) {
   // Use this function directly if you want to control the sliding direction outside PageSlider
   this.slidePageFrom = function(page, from) {
 
-    container.append(page);
+    container.html(page);
 
     if (!currentPage || !from) {
       page.attr("class", "page page-center");
@@ -48,9 +48,9 @@ function PageSlider(container) {
     // Position the page at the starting position of the animation
     page.attr("class", "page " + from);
 
-    currentPage.one('webkitTransitionEnd', function(e) {
-      $(e.target).remove();
-    });
+    // currentPage.one('webkitTransitionEnd', function(e) {
+    //   $(e.target).remove();
+    // });
 
     // Force reflow. More information here: http://www.phpied.com/rendering-repaint-reflowrelayout-restyle/
     container[0].offsetWidth;

@@ -1,12 +1,16 @@
 app.routers.AppRouter = Backbone.Router.extend({
 	routes: {
-	  "": 'home',
-      "catagories": 'home',
-      "catagory/:id": "show"
+	  "": 'login'
   },
 
   initialize: function(){
+    app.slider = new PageSlider($('body'));
+    app.loginView = new app.views.LoginView()
 
+  },
+
+  login: function(){
+    app.slider.slidePage(app.loginView.render().$el);
   },
 
   home: function () {
@@ -22,18 +26,4 @@ app.routers.AppRouter = Backbone.Router.extend({
     // app.slider.slidePage(app.homeView.$el);
     $('#app').html(app.homeView.$el);
   },
-
-  show: function(id) {
-    // Since the home view never changes, we instantiate it and render it only once
-    if (!app.courseView) {
-        app.courseModel = new app.models.Course();
-        app.courseView = new app.views.CourseView({model: app.courseModel});
-        app.courseView.render();
-    } else {
-        console.log('reusing catagory view');
-        app.courseView.delegateEvents(); // delegate events when the view is recycled
-    }
-    // app.slider.slidePage(app.courseView.$el);
-    $('#app').html(app.courseView.$el);
-  }
 });

@@ -18,7 +18,7 @@ var app = {
 
 $(document).on("ready", function () {
   app.router = new app.routers.AppRouter();
-  app.utils.templates.load(['HomeView', 'CourseView'], function () {
+  app.utils.templates.load(['LoginView'], function () {
     app.router = new app.routers.AppRouter();
     Backbone.history.start();
   });
