@@ -3,15 +3,19 @@
 </header>
 
 <div class='content'>
-  <form class="input-group">
+  <form class="input-group" action="http://localhost:3000/users" method='post'>
     <div class="input-row">
       <label>Email</label>
-      <input type="email" placeholder="your@email.com">
+      <input autofocus="autofocus" id="user_email" name="user[email]" type="email" value="" placeholder="your@email.com">
     </div>
     <div class="input-row">
       <label>Password</label>
-      <input type="password" placeholder="password">
+      <input autocomplete="off" id="user_password" name="user[password]" type="password" placeholder='password'>
     </div>
-    <button class="btn btn-positive btn-block">login</button>
+    <div class="input-row">
+      <label>Password Confirmation</label>
+      <input autocomplete="off" id="user_password_confirmation" name="user[password_confirmation]" type="password" placeholder="type password again">
+    </div>
+    <button class="btn btn-positive btn-block" type="submit" name="commit">login</button>
   </form>
 </div>
