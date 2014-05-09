@@ -1,13 +1,15 @@
 app.routers.AppRouter = Backbone.Router.extend({
 	routes: {
 	  "": 'login',
-    '/signup': 'signup'
+    'signup': 'signup',
+    'home': 'home'
   },
 
   initialize: function(){
     app.slider = new PageSlider($('body'));
     app.loginView = new app.views.LoginView();
     app.signupView = new app.views.SignupView();
+    app.homeView = new app.views.HomeView();
 
   },
 
@@ -17,5 +19,9 @@ app.routers.AppRouter = Backbone.Router.extend({
 
   signup: function(){
     app.slider.slidePage(app.signupView.render().$el);
+  },
+
+  home: function(){
+    app.slider.slidePage(app.homeView.render().$el);
   },
 });
