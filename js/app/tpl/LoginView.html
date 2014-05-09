@@ -3,14 +3,14 @@
 </header>
 
 <div class='content'>
-  <form class="input-group" action="http://localhost:1337/user_session" method='post'>
+  <form class="input-group" action="http://localhost:1337/user/login" method='post'>
     <div class="input-row">
       <label>Email</label>
-      <input autofocus="autofocus" id="user_email" name="user[email]" type="email" value="" placeholder="your@email.com">
+      <input autofocus="autofocus" id="email" name="email" type="email" value="" placeholder="your@email.com">
     </div>
     <div class="input-row">
       <label>Password</label>
-      <input autocomplete="off" id="user_password" name="user[password]" type="password" placeholder='password'>
+      <input autocomplete="off" id="password" name="password" type="password" placeholder='password'>
     </div>
 
     <button class="btn btn-positive btn-block" type="submit" name="commit">login</button>
