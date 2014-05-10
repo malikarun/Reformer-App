@@ -3,7 +3,7 @@
 </header>
 
 <div class='content'>
-  <form class="input-group" action="http://localhost:1337/user" method='post'>
+  <form class="input-group" action="http://localhost:1337/user" method='post' target="#login">
     <div class="input-row">
       <label>Email</label>
       <input autofocus="autofocus" id="email" name="email" type="email" value="" placeholder="your@email.com">
@@ -12,7 +12,13 @@
       <label>Password</label>
       <input autocomplete="off" id="password" name="password" type="password" placeholder='password'>
     </div>
-
-    <button class="btn btn-positive btn-block" type="submit" name="commit">Sign Up</button>
+    <br/>
+    <div class="btn btn-positive btn-block submit-form">sign up</div>
   </form>
+  <a href="#login"><button class="btn btn-link btn-nav" >
+    <span class="icon icon-person"></span> login
+  </button></a>
+  <a href="#forgot"><button class="btn btn-link btn-nav pull-right" > <span class="icon icon-gear"></span>
+    forgot password
+  </button></a>
 </div>
