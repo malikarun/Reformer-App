@@ -3,7 +3,7 @@
 </header>
 
 <div class='content'>
-  <form class="input-group" action="http://localhost:1337/user/login" method='post' target="#home">
+  <form class="input-group" action="http://localhost:1337/login" method='post' target="#home">
     <div class="input-row">
       <label>Email</label>
       <input autofocus="autofocus" id="email" name="email" type="email" value="" placeholder="your@email.com">
@@ -17,8 +17,14 @@
   </form>
   <a href="#signup"><button class="btn btn-link btn-nav pull-left" > <span class="icon icon-share"></span> Sign Up
   </button></a>
-
   <a href="#forgot"><button class="btn btn-link btn-nav pull-right" > <span class="icon icon-gear"></span>
     forgot password
   </button></a>
+
+  or login with
+  <a href="http://localhost:1337/auth/github/" class="btn">with GitHub</a>
+
+  <a href="http://localhost:1337/auth/facebook/" class="btn">with Facebook</a>
+
+  <a href="http://localhost:1337/auth/google/" class="btn">with Google+</a>
 </div>
