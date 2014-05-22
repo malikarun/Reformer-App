@@ -3,31 +3,25 @@
 </header>
 
 <div class='content'>
-  <form class="input-group" action="http://reformer.herokuapp.com/user" method='post' target="#login">
-    <div class="input-row">
-      <label>Email</label>
-      <input autofocus="autofocus" id="email" name="email" type="email" value="" placeholder="your@email.com">
-    </div>
-    <div class="input-row">
-      <label>Password</label>
-      <input autocomplete="off" id="password" name="password" type="password" placeholder='password'>
-    </div>
-    <br/>
-    <div class="btn btn-positive btn-block submit-form">sign up</div>
-  </form>
-  <a href="#login"><button class="btn btn-link btn-nav" >
-    <span class="icon icon-person"></span> login
-  </button></a>
-  <a href="#forgot"><button class="btn btn-link btn-nav pull-right" > <span class="icon icon-gear"></span>
-    forgot password
-  </button></a>
-
-  <div class="bar bar-standard bar-footer-secondary">
-    <a href="http://reformer.herokuapp.com/auth/facebook/"><button class="btn btn-link btn-nav pull-right" > <span class="icon icon-share"></span> login with Facebook
+  <div class="card">
+    <form class="input-group" action="http://reformer.herokuapp.com/user" method='post' target="#login">
+      <div class="input-row">
+        <label>Email</label>
+        <input autofocus="autofocus" id="email" name="email" type="email" value="" placeholder="your@email.com">
+      </div>
+      <div class="input-row">
+        <label>Password</label>
+        <input autocomplete="off" id="password" name="password" type="password" placeholder='password'>
+      </div>
+      <br/>
+      <div class="btn btn-positive btn-block submit-form">sign up</div>
+    </form>
+    <a href="#login"><button class="btn btn-link btn-nav" >
+      <span class="icon icon-person"></span> login
     </button></a>
-<!--
-    <a href="http://reformer.herokuapp.com/auth/google/"><button class="btn btn-link btn-nav pull-left" > <span class="icon icon-gear"></span>
-      login with Google
-    </button></a> -->
+    <a href="#forgot"><button class="btn btn-link btn-nav pull-right" > <span class="icon icon-gear"></span>
+      forgot password
+    </button></a>
+    </div>
   </div>
 </div>
