@@ -1,6 +1,6 @@
 app.routers.AppRouter = Backbone.Router.extend({
 	routes: {
-	  "": 'login',
+	  "": 'process',
     "login": 'login',
     'signup': 'signup',
     'home': 'home',
@@ -19,34 +19,73 @@ app.routers.AppRouter = Backbone.Router.extend({
     app.groupView = new app.views.GroupView();
     app.reformerView = new app.views.ReformerView();
     app.settingView = new app.views.SettingView();
+    loggedIn = (localStorage.getItem("username") != null) && (localStorage.getItem("password") != null)
+
+  },
+
+  process: function(){
+    if(loggedIn){
+      app.slider.slidePage(app.homeView.render().$el);
+    }
+    else {
+      app.slider.slidePage(app.loginView.render().$el);
+    }
 
   },
 
   login: function(){
-    app.slider.slidePage(app.loginView.render().$el);
+    if(loggedIn){
+      app.slider.slidePage(app.loginView.render().$el);
+    } else {
+      app.slider.slidePage(app.HomeView.render().$el);
+    }
   },
 
   signup: function(){
-    app.slider.slidePage(app.signupView.render().$el);
+    if(loggedIn){
+      app.slider.slidePage(app.signupView.render().$el);
+    } else {
+      app.slider.slidePage(app.loginView.render().$el);
+    }
   },
 
   home: function(){
-    app.slider.slidePage(app.homeView.render().$el);
+    if(loggedIn){
+      app.slider.slidePage(app.homeView.render().$el);
+    } else {
+      app.slider.slidePage(app.loginView.render().$el);
+    }
   },
 
   chat: function(){
-    app.slider.slidePage(app.chatView.render().$el);
+    if(loggedIn){
+      app.slider.slidePage(app.chatView.render().$el);
+    } else {
+      app.slider.slidePage(app.loginView.render().$el);
+    }
   },
 
   group: function(){
-    app.slider.slidePage(app.groupView.render().$el);
+    if(loggedIn){
+      app.slider.slidePage(app.groupView.render().$el);
+    } else {
+      app.slider.slidePage(app.loginView.render().$el);
+    }
   },
 
   setting: function(){
-    app.slider.slidePage(app.settingView.render().$el);
+    if(loggedIn){
+      app.slider.slidePage(app.settingView.render().$el);
+    } else {
+      app.slider.slidePage(app.loginView.render().$el);
+    }
   },
 
   reformer: function(){
-    app.slider.slidePage(app.reformerView.render().$el);
+    if(loggedIn){
+      app.slider.slidePage(app.reformerView.render().$el);
+    } else {
+      app.slider.slidePage(app.loginView.render().$el);
+    }
   }
 });
