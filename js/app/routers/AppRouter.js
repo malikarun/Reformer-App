@@ -3,7 +3,11 @@ app.routers.AppRouter = Backbone.Router.extend({
 	  "": 'login',
     "login": 'login',
     'signup': 'signup',
-    'home': 'home'
+    'home': 'home',
+    'chat': 'chat',
+    'group': 'group',
+    'reformer': 'reformer',
+    'setting': 'setting',
   },
 
   initialize: function(){
@@ -11,6 +15,10 @@ app.routers.AppRouter = Backbone.Router.extend({
     app.loginView = new app.views.LoginView();
     app.signupView = new app.views.SignupView();
     app.homeView = new app.views.HomeView();
+    app.chatView = new app.views.ChatView();
+    app.groupView = new app.views.GroupView();
+    app.reformerView = new app.views.ReformerView();
+    app.settingView = new app.views.SettingView();
 
   },
 
@@ -25,4 +33,20 @@ app.routers.AppRouter = Backbone.Router.extend({
   home: function(){
     app.slider.slidePage(app.homeView.render().$el);
   },
+
+  chat: function(){
+    app.slider.slidePage(app.chatView.render().$el);
+  },
+
+  group: function(){
+    app.slider.slidePage(app.groupView.render().$el);
+  },
+
+  setting: function(){
+    app.slider.slidePage(app.settingView.render().$el);
+  },
+
+  reformer: function(){
+    app.slider.slidePage(app.reformerView.render().$el);
+  }
 });
