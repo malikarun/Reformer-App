@@ -5,8 +5,9 @@ $(document).on("ready", function () {
     password = form.find('#password').val();
 
     $.post(form.attr('action'), form.serialize()).done(function(data){
-      localStorage.setItem("username", username);
-      localStorage.setItem("password", password);
+      window.localStorage.setItem("username", username);
+      window.localStorage.setItem("password", password);
+      alert(window.localStorage.getItem("username"));
       window.scrollTo(0,0)
       window.location = form.attr('target');
     });

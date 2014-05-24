@@ -19,12 +19,12 @@ app.routers.AppRouter = Backbone.Router.extend({
     app.groupView = new app.views.GroupView();
     app.reformerView = new app.views.ReformerView();
     app.settingView = new app.views.SettingView();
-    loggedIn = (localStorage.getItem("username") != null) && (localStorage.getItem("password") != null)
+    app.loggedIn = (window.localStorage.getItem("username") != null) && (window.localStorage.getItem("password") != null);
 
   },
 
   process: function(){
-    if(loggedIn){
+    if(app.loggedIn){
       app.slider.slidePage(app.homeView.render().$el);
     }
     else {
@@ -34,7 +34,7 @@ app.routers.AppRouter = Backbone.Router.extend({
   },
 
   login: function(){
-    if(loggedIn){
+    if(app.loggedIn){
       app.slider.slidePage(app.loginView.render().$el);
     } else {
       app.slider.slidePage(app.HomeView.render().$el);
@@ -42,7 +42,7 @@ app.routers.AppRouter = Backbone.Router.extend({
   },
 
   signup: function(){
-    if(loggedIn){
+    if(app.loggedIn){
       app.slider.slidePage(app.signupView.render().$el);
     } else {
       app.slider.slidePage(app.loginView.render().$el);
@@ -50,7 +50,7 @@ app.routers.AppRouter = Backbone.Router.extend({
   },
 
   home: function(){
-    if(loggedIn){
+    if(app.loggedIn){
       app.slider.slidePage(app.homeView.render().$el);
     } else {
       app.slider.slidePage(app.loginView.render().$el);
@@ -58,7 +58,7 @@ app.routers.AppRouter = Backbone.Router.extend({
   },
 
   chat: function(){
-    if(loggedIn){
+    if(app.loggedIn){
       app.slider.slidePage(app.chatView.render().$el);
     } else {
       app.slider.slidePage(app.loginView.render().$el);
@@ -66,7 +66,7 @@ app.routers.AppRouter = Backbone.Router.extend({
   },
 
   group: function(){
-    if(loggedIn){
+    if(app.loggedIn){
       app.slider.slidePage(app.groupView.render().$el);
     } else {
       app.slider.slidePage(app.loginView.render().$el);
@@ -74,7 +74,7 @@ app.routers.AppRouter = Backbone.Router.extend({
   },
 
   setting: function(){
-    if(loggedIn){
+    if(app.loggedIn){
       app.slider.slidePage(app.settingView.render().$el);
     } else {
       app.slider.slidePage(app.loginView.render().$el);
@@ -82,7 +82,7 @@ app.routers.AppRouter = Backbone.Router.extend({
   },
 
   reformer: function(){
-    if(loggedIn){
+    if(app.loggedIn){
       app.slider.slidePage(app.reformerView.render().$el);
     } else {
       app.slider.slidePage(app.loginView.render().$el);
