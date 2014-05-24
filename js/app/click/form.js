@@ -7,7 +7,6 @@ $(document).on("ready", function () {
     $.post(form.attr('action'), form.serialize()).done(function(data){
       window.localStorage.setItem("username", username);
       window.localStorage.setItem("password", password);
-      alert(window.localStorage.getItem("username"));
       window.scrollTo(0,0)
       window.location = form.attr('target');
     });

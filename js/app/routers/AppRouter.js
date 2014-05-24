@@ -53,6 +53,7 @@ app.routers.AppRouter = Backbone.Router.extend({
     if(app.loggedIn){
       app.slider.slidePage(app.homeView.render().$el);
     } else {
+      alert('not loggedIn');
       app.slider.slidePage(app.loginView.render().$el);
     }
   },
