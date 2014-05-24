@@ -3,9 +3,9 @@ app.routers.AppRouter = Backbone.Router.extend({
 	  "": 'process',
     "login": 'login',
     'signup': 'signup',
-    'home': 'home',
+    'idea': 'idea',
     'chat': 'chat',
-    'group': 'group',
+    'problem': 'problem',
     'reformer': 'reformer',
     'setting': 'setting',
   },
@@ -14,9 +14,9 @@ app.routers.AppRouter = Backbone.Router.extend({
     app.slider = new PageSlider($('body'));
     app.loginView = new app.views.LoginView();
     app.signupView = new app.views.SignupView();
-    app.homeView = new app.views.HomeView();
+    app.ideaView = new app.views.IdeaView();
     app.chatView = new app.views.ChatView();
-    app.groupView = new app.views.GroupView();
+    app.problemView = new app.views.ProblemView();
     app.reformerView = new app.views.ReformerView();
     app.settingView = new app.views.SettingView();
     app.loggedIn = (window.localStorage.getItem("username") != null) && (window.localStorage.getItem("password") != null);
@@ -25,7 +25,7 @@ app.routers.AppRouter = Backbone.Router.extend({
 
   process: function(){
     if(app.loggedIn){
-      app.slider.slidePage(app.homeView.render().$el);
+      app.slider.slidePage(app.ideaView.render().$el);
     }
     else {
       app.slider.slidePage(app.loginView.render().$el);
@@ -37,7 +37,7 @@ app.routers.AppRouter = Backbone.Router.extend({
     if(app.loggedIn){
       app.slider.slidePage(app.loginView.render().$el);
     } else {
-      app.slider.slidePage(app.HomeView.render().$el);
+      app.slider.slidePage(app.IdeaView.render().$el);
     }
   },
 
@@ -49,9 +49,9 @@ app.routers.AppRouter = Backbone.Router.extend({
     }
   },
 
-  home: function(){
+  idea: function(){
     if(app.loggedIn){
-      app.slider.slidePage(app.homeView.render().$el);
+      app.slider.slidePage(app.ideaView.render().$el);
     } else {
       alert('not loggedIn');
       app.slider.slidePage(app.loginView.render().$el);
@@ -66,9 +66,9 @@ app.routers.AppRouter = Backbone.Router.extend({
     }
   },
 
-  group: function(){
+  problem: function(){
     if(app.loggedIn){
-      app.slider.slidePage(app.groupView.render().$el);
+      app.slider.slidePage(app.problemView.render().$el);
     } else {
       app.slider.slidePage(app.loginView.render().$el);
     }
