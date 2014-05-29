@@ -7,8 +7,10 @@ $(document).on("ready", function () {
     $.post(form.attr('action'), form.serialize()).done(function(data){
       window.localStorage.setItem("username", username);
       window.localStorage.setItem("password", password);
-      window.scrollTo(0,0)
-      window.location = form.attr('target');
+      app.loggedIn = (window.localStorage.getItem("username") != null) && (window.localStorage.getItem("password") != null);
+      // window.sessionStorage.setItem('sessionId', data.sessionId)
+      window.scrollTo(0,0);
+      window.location.href = form.attr('target');
     });
   });
 });
