@@ -29,7 +29,7 @@ app.routers.AppRouter = Backbone.Router.extend({
     app.problemView = new app.views.ProblemView();
     // app.reformerView = new app.views.ReformerView({collection: app.users});
     app.settingView = new app.views.SettingView();
-    app.loggedIn = (window.localStorage.getItem("username") != null) && (window.localStorage.getItem("password") != null);
+    app.loggedIn = window.sessionStorage.getItem("key") !== null;
 
   },
 
@@ -44,10 +44,10 @@ app.routers.AppRouter = Backbone.Router.extend({
   },
 
   login: function(){
-    if(app.loggedIn){
+    if(!app.loggedIn){
       app.slider.slidePage(app.loginView.render().$el);
     } else {
-      app.slider.slidePage(app.IdeaView.render().$el);
+      app.slider.slidePage(app.ideaView.render().$el);
     }
   },
 
