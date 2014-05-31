@@ -2,6 +2,7 @@ app.routers.AppRouter = Backbone.Router.extend({
 	routes: {
 	  "": 'process',
     "login": 'login',
+    "logout": 'logout',
     'signup': 'signup',
     'idea': 'idea',
     'chat': 'chat',
@@ -27,7 +28,7 @@ app.routers.AppRouter = Backbone.Router.extend({
     app.ideaView = new app.views.IdeaView();
     app.chatView = new app.views.ChatView();
     app.problemView = new app.views.ProblemView();
-    // app.reformerView = new app.views.ReformerView({collection: app.users});
+    // app.reformerView = new app.views.ReformerView();
     app.settingView = new app.views.SettingView();
     app.loggedIn = window.sessionStorage.getItem("key") !== null;
 
@@ -49,6 +50,19 @@ app.routers.AppRouter = Backbone.Router.extend({
     } else {
       app.slider.slidePage(app.ideaView.render().$el);
     }
+  },
+
+  logout: function(){
+    if (confirm('Are you sure?')) {
+      window.localStorage.removeItem('username');
+      window.localStorage.removeItem('password');
+      window.sessionStorage.removeItem('key');
+      app.loggedIn = false;
+      app.router.navigate('#login', {trigger: true});
+    }
+    else {
+      app.router.navigate('#setting', {trigger: true});
+    };
   },
 
   signup: function(){

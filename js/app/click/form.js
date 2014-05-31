@@ -1,6 +1,7 @@
 $(document).on("ready", function () {
   if (!app.loggedIn) {
-    window.location.href = '#login';
+    // window.location.href = '#login';
+    app.router.navigate('#login', {trigger: true});
     window.setTimeout(function(){
       if  (window.localStorage.getItem("username") !== null && window.localStorage.getItem("password") !== null) {
         $('body').find('#username').val(window.localStorage.getItem("username"));
@@ -22,8 +23,10 @@ $(document).on("ready", function () {
       window.sessionStorage.setItem('key', data.session);
       app.loggedIn = window.sessionStorage.getItem("key") !== null;
       window.scrollTo(0,0);
-      window.location.href = form.attr('target');
-      console.log('success');
+      // window.location.href = form.attr('target');
+      app.router.navigate(form.attr('target'), {trigger: true});
+    }).done(function(){
+      app.router.navigate('#login', {trigger: true});
     });
   });
 });
