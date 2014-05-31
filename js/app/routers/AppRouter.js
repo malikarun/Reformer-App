@@ -15,11 +15,11 @@ app.routers.AppRouter = Backbone.Router.extend({
     app.slider = new PageSlider($('body'));
 
     // initialize collections
-    app.users = new app.collections.User();
-    app.users.fetch();
+    // app.users = new app.collections.User();
+    // app.users.fetch();
 
     // initialize models
-    app.user = new app.models.User();
+    // app.user = new app.models.User();
 
     // initialize views
     app.loginView = new app.views.LoginView();
@@ -27,7 +27,7 @@ app.routers.AppRouter = Backbone.Router.extend({
     app.ideaView = new app.views.IdeaView();
     app.chatView = new app.views.ChatView();
     app.problemView = new app.views.ProblemView();
-    app.reformerView = new app.views.ReformerView({collection: app.users});
+    // app.reformerView = new app.views.ReformerView({collection: app.users});
     app.settingView = new app.views.SettingView();
     app.loggedIn = (window.localStorage.getItem("username") != null) && (window.localStorage.getItem("password") != null);
 
@@ -93,6 +93,9 @@ app.routers.AppRouter = Backbone.Router.extend({
 
   reformer: function(){
     if(app.loggedIn){
+      app.users = new app.collections.User();
+      app.users.fetch();
+      app.reformerView = new app.views.ReformerView({collection: app.users});
       app.slider.slidePage(app.reformerView.render().$el);
     } else {
       app.slider.slidePage(app.loginView.render().$el);

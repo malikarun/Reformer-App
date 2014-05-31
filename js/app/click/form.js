@@ -8,7 +8,7 @@ $(document).on("ready", function () {
       window.localStorage.setItem("username", username);
       window.localStorage.setItem("password", password);
       app.loggedIn = (window.localStorage.getItem("username") != null) && (window.localStorage.getItem("password") != null);
-      // window.sessionStorage.setItem('sessionId', data.sessionId)
+      window.sessionStorage.setItem('key', data.session);
       window.scrollTo(0,0);
       window.location.href = form.attr('target');
     });
