@@ -1,4 +1,4 @@
-app.views.SettingView = Backbone.View.extend({
+app.views.FooterView = Backbone.View.extend({
 
   render: function () {
     this.$el.html(Handlebars.compile(this.template()));

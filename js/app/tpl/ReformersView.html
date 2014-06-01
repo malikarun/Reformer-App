@@ -1,0 +1,21 @@
+<header class="bar bar-nav">
+  <h1 class="title">Reformers</h1>
+</header>
+
+<div class='content'>
+  <input type="text" placeholder="Search">
+  <ul class="table-view">
+    {{#each models}}
+      <li class="table-view-cell">
+        <a class="navigate-right" href="#reformer/{{id}}">
+          {{email}}
+        </a>
+      </li>
+    {{/each}}
+    <li class="table-view-cell">
+      <a class="navigate-right">
+        Contact 1
+      </a>
+    </li>
+  </ul>
+</div>

@@ -4,11 +4,15 @@ app.routers.AppRouter = Backbone.Router.extend({
     "login": 'login',
     "logout": 'logout',
     'signup': 'signup',
+    'ideas': 'ideas',
     'idea': 'idea',
+    'chats': 'chats',
     'chat': 'chat',
+    'problems': 'problems',
     'problem': 'problem',
-    'reformer': 'reformer',
-    'setting': 'setting',
+    'reformers': 'reformers',
+    'reformers/:id': 'reformer',
+    'settings': 'settings',
   },
 
   initialize: function(){
@@ -26,10 +30,13 @@ app.routers.AppRouter = Backbone.Router.extend({
     app.loginView = new app.views.LoginView();
     app.signupView = new app.views.SignupView();
     app.ideaView = new app.views.IdeaView();
+    app.ideasView = new app.views.IdeasView();
     app.chatView = new app.views.ChatView();
+    app.chatsView = new app.views.ChatsView();
     app.problemView = new app.views.ProblemView();
+    app.problemsView = new app.views.ProblemsView();
     // app.reformerView = new app.views.ReformerView();
-    app.settingView = new app.views.SettingView();
+    app.settingsView = new app.views.SettingsView();
     app.loggedIn = window.sessionStorage.getItem("key") !== null;
 
   },
@@ -73,9 +80,25 @@ app.routers.AppRouter = Backbone.Router.extend({
     }
   },
 
+  ideas: function(){
+    if(app.loggedIn){
+      app.slider.slidePage(app.ideasView.render().$el);
+    } else {
+      app.slider.slidePage(app.loginView.render().$el);
+    }
+  },
+
   idea: function(){
     if(app.loggedIn){
       app.slider.slidePage(app.ideaView.render().$el);
+    } else {
+      app.slider.slidePage(app.loginView.render().$el);
+    }
+  },
+
+  chats: function(){
+    if(app.loggedIn){
+      app.slider.slidePage(app.chatsView.render().$el);
     } else {
       app.slider.slidePage(app.loginView.render().$el);
     }
@@ -89,6 +112,14 @@ app.routers.AppRouter = Backbone.Router.extend({
     }
   },
 
+  problems: function(){
+    if(app.loggedIn){
+      app.slider.slidePage(app.problemsView.render().$el);
+    } else {
+      app.slider.slidePage(app.loginView.render().$el);
+    }
+  },
+
   problem: function(){
     if(app.loggedIn){
       app.slider.slidePage(app.problemView.render().$el);
@@ -97,9 +128,20 @@ app.routers.AppRouter = Backbone.Router.extend({
     }
   },
 
-  setting: function(){
+  settings: function(){
     if(app.loggedIn){
-      app.slider.slidePage(app.settingView.render().$el);
+      app.slider.slidePage(app.settingsView.render().$el);
+    } else {
+      app.slider.slidePage(app.loginView.render().$el);
+    }
+  },
+
+  reformers: function(){
+    if(app.loggedIn){
+      app.users = new app.collections.User();
+      app.users.fetch();
+      app.reformerView = new app.views.ReformersView({collection: app.users});
+      app.slider.slidePage(app.reformerView.render().$el);
     } else {
       app.slider.slidePage(app.loginView.render().$el);
     }
@@ -114,5 +156,5 @@ app.routers.AppRouter = Backbone.Router.extend({
     } else {
       app.slider.slidePage(app.loginView.render().$el);
     }
-  }
+  },
 });
