@@ -11,7 +11,7 @@ $(document).on("ready", function () {
   };
 
   $( "body" ).on( "click", '.submit-form', function( event ) {
-    $(this).append("<i class='fa fa-spinner fa-2x'></i>");
+    $(this).append("<i class='fa fa-spinner fa-spin'></i>");
     var form = $(this).closest('form'),
     username = form.find('#username').val(),
     password = form.find('#password').val();
