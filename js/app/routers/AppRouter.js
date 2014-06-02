@@ -31,8 +31,8 @@ app.routers.AppRouter = Backbone.Router.extend({
     app.signupView = new app.views.SignupView();
     app.ideaView = new app.views.IdeaView();
     app.ideasView = new app.views.IdeasView();
-    app.chatView = new app.views.ChatView();
-    app.chatsView = new app.views.ChatsView();
+    // app.chatView = new app.views.ChatView();
+    // app.chatsView = new app.views.ChatsView();
     app.problemView = new app.views.ProblemView();
     app.problemsView = new app.views.ProblemsView();
     // app.reformerView = new app.views.ReformerView();
@@ -80,6 +80,9 @@ app.routers.AppRouter = Backbone.Router.extend({
 
   ideas: function(){
     if(app.loggedIn){
+      app.ideas = new app.collections.Idea();
+      app.ideas.fetch();
+      app.ideasView = new app.views.IdeasView({collection: app.ideas});
       app.slider.slidePage(app.ideasView.render().$el);
     } else {
       app.slider.slidePage(app.loginView.render().$el);
