@@ -4,15 +4,19 @@ app.routers.AppRouter = Backbone.Router.extend({
     "login": 'login',
     "logout": 'logout',
     'signup': 'signup',
+    'settings': 'settings',
+
     'ideas': 'ideas',
-    'idea': 'idea',
+    'ideas/:id': 'idea',
+
     'chats': 'chats',
-    'chat': 'chat',
+    'chats/:id': 'chat',
+
     'problems': 'problems',
-    'problem': 'problem',
+    'problems/:id': 'problem',
+
     'reformers': 'reformers',
     'reformers/:id': 'reformer',
-    'settings': 'settings',
   },
 
   initialize: function(){
@@ -29,20 +33,20 @@ app.routers.AppRouter = Backbone.Router.extend({
     // initialize views
     app.loginView = new app.views.LoginView();
     app.signupView = new app.views.SignupView();
-    // app.ideaView = new app.views.IdeaView();
-    // app.ideasView = new app.views.IdeasView();
     app.chatView = new app.views.ChatView();
-    app.chatsView = new app.views.ChatsView();
+    // app.chatsView = new app.views.ChatsView();
     app.problemView = new app.views.ProblemView();
-    app.problemsView = new app.views.ProblemsView();
-    // app.reformerView = new app.views.ReformerView();
+    // app.problemsView = new app.views.ProblemsView();
     app.settingsView = new app.views.SettingsView();
     app.loggedIn = window.sessionStorage.getItem("key") !== null;
   },
 
   process: function(){
     if(app.loggedIn){
-      app.slider.slidePage(app.ideaView.render().$el);
+      app.ideas = new app.collections.Idea();
+      app.ideas.fetch();
+      app.ideasView = new app.views.IdeasView({collection: app.ideas});
+      app.slider.slidePage(app.ideasView.render().$el);
     }
     else {
       app.slider.slidePage(app.loginView.render().$el);
@@ -53,7 +57,10 @@ app.routers.AppRouter = Backbone.Router.extend({
     if(!app.loggedIn){
       app.slider.slidePage(app.loginView.render().$el);
     } else {
-      app.slider.slidePage(app.ideaView.render().$el);
+      app.ideas = new app.collections.Idea();
+      app.ideas.fetch();
+      app.ideasView = new app.views.IdeasView({collection: app.ideas});
+      app.slider.slidePage(app.ideasView.render().$el);
     };
   },
 
@@ -91,7 +98,7 @@ app.routers.AppRouter = Backbone.Router.extend({
 
   idea: function(){
     if(app.loggedIn){
-      app.slider.slidePage(app.ideaView.render().$el);
+      app.slider.slidePage(new app.views.IdeaView.render().$el);
     } else {
       app.slider.slidePage(app.loginView.render().$el);
     };
@@ -99,6 +106,9 @@ app.routers.AppRouter = Backbone.Router.extend({
 
   chats: function(){
     if(app.loggedIn){
+      app.chats = new app.collections.Chat();
+      app.chats.fetch();
+      app.chatsView = new app.views.ChatsView({collection: app.chats});
       app.slider.slidePage(app.chatsView.render().$el);
     } else {
       app.slider.slidePage(app.loginView.render().$el);
@@ -115,6 +125,9 @@ app.routers.AppRouter = Backbone.Router.extend({
 
   problems: function(){
     if(app.loggedIn){
+      app.problems = new app.collections.Problem();
+      app.problems.fetch();
+      app.problemsView = new app.views.ProblemsView({collection: app.problems});
       app.slider.slidePage(app.problemsView.render().$el);
     } else {
       app.slider.slidePage(app.loginView.render().$el);
