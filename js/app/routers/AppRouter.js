@@ -29,10 +29,10 @@ app.routers.AppRouter = Backbone.Router.extend({
     // initialize views
     app.loginView = new app.views.LoginView();
     app.signupView = new app.views.SignupView();
-    app.ideaView = new app.views.IdeaView();
-    app.ideasView = new app.views.IdeasView();
-    // app.chatView = new app.views.ChatView();
-    // app.chatsView = new app.views.ChatsView();
+    // app.ideaView = new app.views.IdeaView();
+    // app.ideasView = new app.views.IdeasView();
+    app.chatView = new app.views.ChatView();
+    app.chatsView = new app.views.ChatsView();
     app.problemView = new app.views.ProblemView();
     app.problemsView = new app.views.ProblemsView();
     // app.reformerView = new app.views.ReformerView();
