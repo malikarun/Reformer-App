@@ -1,9 +1,12 @@
 app.views.ProblemsView = Backbone.View.extend({
+  initialize: function(){
+    this.listenTo(this.collection, 'change', this.render);
+    this.listenTo(this.collection, 'add', this.render);
+    this.listenTo(this.collection, 'remove', this.render);
+  },
 
   render: function () {
-    this.$el.html(Handlebars.compile(this.template()));
-    // this.footerView = new app.views.FooterView();
-    // this.$el.append(this.footerView.render().el);
+    this.$el.html(Handlebars.compile(this.template())(this.collection));
     return this;
-  }
+  },
 });

@@ -1,9 +1,7 @@
 app.views.ChatView = Backbone.View.extend({
 
   render: function () {
-    this.$el.html(Handlebars.compile(this.template()));
-    // this.footerView = new app.views.FooterView();
-    // this.$el.append(this.footerView.render().el);
+    this.$el.html(Handlebars.compile(this.template())(this.model.attributes));
     return this;
   }
 });
