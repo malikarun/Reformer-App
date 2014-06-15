@@ -11,7 +11,7 @@
           <img class="media-object pull-left" src="http://placehold.it/42x42">
           <div class="media-body">
             {{attributes.owner.email}}
-            <abbr class='timeago' title='{{attributes.createdAt}}'>{{attributes.createdAt}}</abbr>
+            <time class='timeago' datetime='{{attributes.createdAt}}'>{{attributes.createdAt}}</time>
           </div>
           <p>{{attributes.title}}</p>
         </li>
