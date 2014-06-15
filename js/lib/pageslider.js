@@ -35,6 +35,7 @@ function PageSlider(container) {
     // highlight = app.router.routes[Backbone.history.fragment];
     // $('.bar.bar-tab').find(".active").removeClass('active');
     // $('.bar.bar-tab').find("a[href='#" +highlight+"']").addClass('active');
+    $(document).trigger('page-slided');
   }
 
   // Use this function directly if you want to control the sliding direction outside PageSlider
