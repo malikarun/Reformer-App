@@ -16,14 +16,14 @@ $(document).on("ready", function () {
     username = form.find('#username').val(),
     password = form.find('#password').val();
 
-    $.post(form.attr('action'), form.serialize()).done(function(data){
+    $.post(form.attr('action'), form.serialize(), function(data){
       window.localStorage.setItem("username", username);
       window.localStorage.setItem("password", password);
       window.sessionStorage.setItem('key', data.session);
       app.loggedIn = window.sessionStorage.getItem("key") !== null;
       window.scrollTo(0,0);
       app.router.navigate(form.attr('target'), {trigger: true});
-    }).done(function(){
+    }).fail(function(){
       app.router.navigate('#login', {trigger: true});
     });
   });

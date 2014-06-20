@@ -1,4 +1,3 @@
 $(document).on('page-slided', function(){
-  alert('hi');
-  $(".timeago").timeago();
+  console.log($(document).html());
 });

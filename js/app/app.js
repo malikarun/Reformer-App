@@ -24,4 +24,9 @@ $(document).on("ready", function () {
   });
 }).on("load", function(){
   FastClick.attach(document.body);
+  // $.ajaxSetup({
+  //   xhrFields: {
+  //     withCredentials: true
+  //   }
+  // });
 });
