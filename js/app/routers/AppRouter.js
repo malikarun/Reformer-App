@@ -135,9 +135,10 @@ app.routers.AppRouter = Backbone.Router.extend({
     };
   },
 
-  problem: function(){
+  problem: function(id){
     if(app.loggedIn){
-      app.slider.slidePage(app.problemView.render().$el);
+      app.problem = app.problems.get(id);
+      app.slider.slidePage(app.problemView({model: app.problem}).render().$el);
     } else {
       app.slider.slidePage(app.loginView.render().$el);
     };
