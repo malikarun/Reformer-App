@@ -5,6 +5,20 @@
 </header>
 
 <div class='content'>
+  {{#each models}}
+    <ul class="table-view">
+      <li class="table-view-cell media">
+        <a class="navigate-right">
+          <img class="media-object pull-left" src="http://placehold.it/42x42">
+          <div class="media-body">
+            {{attributes.owner.email}}
+            <p class='messages'>{{attributes.title}}</p>
+          </div>
+        </a>
+      </li>
+    </ul>
+  {{/each}}
+
   <ul class="table-view">
     <li class="table-view-cell media">
       <a class="navigate-right">

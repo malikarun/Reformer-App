@@ -22,14 +22,6 @@ app.routers.AppRouter = Backbone.Router.extend({
   initialize: function(){
     // initialize slider container
     app.slider = new PageSlider($('body'));
-
-    // initialize collections
-    // app.users = new app.collections.User();
-    // app.users.fetch();
-
-    // initialize models
-    // app.user = new app.models.User();
-
     // initialize views
     app.loginView = new app.views.LoginView();
     app.signupView = new app.views.SignupView();
@@ -107,8 +99,7 @@ app.routers.AppRouter = Backbone.Router.extend({
     if(app.loggedIn){
       app.chats = new app.collections.Chat();
       app.chats.fetch();
-      app.chatsView = new app.views.ChatsView({collection: app.chats});
-      app.slider.slidePage(app.chatsView.render().$el);
+      app.slider.slidePage(new app.views.ChatsView({collection: app.chats}).render().$el);
     } else {
       app.slider.slidePage(app.loginView.render().$el);
     };
@@ -116,7 +107,9 @@ app.routers.AppRouter = Backbone.Router.extend({
 
   chat: function(){
     if(app.loggedIn){
-      app.slider.slidePage(app.chatView.render().$el);
+      app.chat = app.chats.get(id);
+      app.slider.slidePage(new app.views.ChatView({model: app.chat}).render().$el);
+      $(document).trigger('page-slided');
     } else {
       app.slider.slidePage(app.loginView.render().$el);
     };
