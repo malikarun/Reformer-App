@@ -96,9 +96,12 @@ app.routers.AppRouter = Backbone.Router.extend({
     };
   },
 
-  idea: function(){
+  idea: function(id){
     if(app.loggedIn){
-      app.slider.slidePage(new app.views.IdeaView.render().$el);
+      app.ideas = new app.collections.Idea();
+      app.ideas.fetch();
+      app.idea = app.ideas.get(id);
+      app.slider.slidePage(new app.views.IdeaView.render({model: app.idea}).$el);
     } else {
       app.slider.slidePage(app.loginView.render().$el);
     };
