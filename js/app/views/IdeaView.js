@@ -1,8 +1,8 @@
 app.views.IdeaView = Backbone.View.extend({
   initialize: function(){
-    this.listenTo(this.model, 'change', this.update);
-    this.listenTo(this.model, 'add', this.update);
-    this.listenTo(this.model, 'remove', this.update);
+    if(this.model != null){
+      this.listenTo(this.model, 'change', this.update);
+    }
   },
 
   render: function () {
