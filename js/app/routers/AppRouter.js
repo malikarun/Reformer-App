@@ -34,9 +34,6 @@ app.routers.AppRouter = Backbone.Router.extend({
     app.loginView = new app.views.LoginView();
     app.signupView = new app.views.SignupView();
     app.chatView = new app.views.ChatView();
-    // app.chatsView = new app.views.ChatsView();
-    app.problemView = new app.views.ProblemView();
-    // app.problemsView = new app.views.ProblemsView();
     app.settingsView = new app.views.SettingsView();
     app.loggedIn = window.sessionStorage.getItem("key") !== null;
   },
@@ -139,7 +136,7 @@ app.routers.AppRouter = Backbone.Router.extend({
   problem: function(id){
     if(app.loggedIn){
       app.problem = app.problems.get(id);
-      app.slider.slidePage(app.problemView({model: app.problem}).render().$el);
+      app.slider.slidePage(new app.views.ProblemView({model: app.problem}).render().$el);
       $(document).trigger('page-slided');
     } else {
       app.slider.slidePage(app.loginView.render().$el);
