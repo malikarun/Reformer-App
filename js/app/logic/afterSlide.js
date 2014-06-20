@@ -1,3 +1,3 @@
 $(document).on('page-slided', function(){
-  alert('page-slided');
+  moment([2007, 0, 29]).fromNow();
 });
