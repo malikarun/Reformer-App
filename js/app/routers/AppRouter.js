@@ -100,6 +100,7 @@ app.routers.AppRouter = Backbone.Router.extend({
     if(app.loggedIn){
       app.idea = app.ideas.get(id);
       app.slider.slidePage(new app.views.IdeaView({model: app.idea}).render().$el);
+      $(document).trigger('page-slided');
     } else {
       app.slider.slidePage(app.loginView.render().$el);
     };
@@ -139,6 +140,7 @@ app.routers.AppRouter = Backbone.Router.extend({
     if(app.loggedIn){
       app.problem = app.problems.get(id);
       app.slider.slidePage(app.problemView({model: app.problem}).render().$el);
+      $(document).trigger('page-slided');
     } else {
       app.slider.slidePage(app.loginView.render().$el);
     };
@@ -167,8 +169,8 @@ app.routers.AppRouter = Backbone.Router.extend({
     if(app.loggedIn){
       app.users = new app.collections.User();
       app.users.fetch();
-      app.reformerView = new app.views.ReformerView({collection: app.users});
-      app.slider.slidePage(app.reformerView.render().$el);
+      app.slider.slidePage(new app.views.ReformerView({collection: app.users}).render().$el);
+      $(document).trigger('page-slided');
     } else {
       app.slider.slidePage(app.loginView.render().$el);
     };
