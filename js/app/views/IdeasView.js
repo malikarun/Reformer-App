@@ -7,7 +7,7 @@ app.views.IdeasView = Backbone.View.extend({
 
   render: function () {
     this.$el.html(Handlebars.compile(this.template())(this.collection));
-    // $(document).trigger('page-slided');
     return this;
+    $(document).trigger('page-slided');
   },
 });
