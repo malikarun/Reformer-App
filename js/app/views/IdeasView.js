@@ -13,5 +13,6 @@ app.views.IdeasView = Backbone.View.extend({
   update: function() {
     this.render();
     $(document).trigger('page-slided');
+    alert('hi');
   }
 });
