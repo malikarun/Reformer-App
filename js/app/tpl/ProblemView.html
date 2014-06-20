@@ -1,6 +1,6 @@
 <header class="bar bar-nav">
-  <h1 class="title">Problems</h1>
-  <a class="icon icon-plus pull-right"></a>
+  <h1 class="title">Problem</h1>
+  <a class="icon icon-left-nav pull-left"></a>
 </header>
 
 <div class='content'>
@@ -9,22 +9,11 @@
       <li class="table-view-cell media">
         <img class="media-object pull-left" src="http://placehold.it/42x42">
         <div class="media-body">
-          IES Group
-          <p>Yesterday 10:30 AM</p>
+          {{owner.email}}
+          <br/>
+          <time class='timeago' >{{createdAt}}</time>
         </div>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore. Lorem ipsum dolor sit amet.</p>
-      </li>
-    </ul>
-  </div>
-  <div class="card">
-    <ul class="table-view">
-      <li class="table-view-cell media">
-        <img class="media-object pull-left" src="http://placehold.it/42x42">
-        <div class="media-body">
-          India Group
-          <p>Today 11:30 AM</p>
-        </div>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore. Lorem ipsum dolor sit amet.</p>
+        <p>{{title}}</p>
       </li>
     </ul>
   </div>

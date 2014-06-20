@@ -98,8 +98,6 @@ app.routers.AppRouter = Backbone.Router.extend({
 
   idea: function(id){
     if(app.loggedIn){
-      // app.ideas = new app.collections.Idea();
-      // app.ideas.fetch();
       app.idea = app.ideas.get(id);
       app.slider.slidePage(new app.views.IdeaView({model: app.idea}).render().$el);
     } else {
