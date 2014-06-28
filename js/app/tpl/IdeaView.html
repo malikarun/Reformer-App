@@ -14,9 +14,24 @@
           <time class='timeago' >{{createdAt}}</time>
         </div>
         <p>{{title}}</p>
+        <i class='fa fa-comments'>comments</i>
+        <p> discussions will go here </p>
+        {{#each discussions}}
+          <img class="media-object pull-left" src="http://placehold.it/42x42">
+          <div class="media-body">
+            {{owner.email}}
+            <br/>
+            <time class='timeago' >{{createdAt}}</time>
+          </div>
+          <p>{{title}}</p>
+        {{/each}}
       </li>
     </ul>
   </div>
+</div>
+
+<div class="bar bar-standard bar-footer">
+  <input type="text" placeholder="discuss this idea">
 </div>
 
 <nav class="bar bar-tab">
